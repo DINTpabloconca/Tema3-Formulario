@@ -6,19 +6,50 @@
         xmlns:local="clr-namespace:Tema3_Formulario"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" Icon="Resources/form.ico">
+    <Window.Resources>
+        <Style TargetType="{x:Type RadioButton}">
+            <Setter Property="FontSize" Value="10"></Setter>
+            <Setter Property="GroupName" Value="EstadoCivil"></Setter>
+
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Margin" Value="0,5,5,5"></Setter>
+
+        </Style>
+        <Style TargetType="{x:Type CheckBox}">
+            <Setter Property="FontSize" Value="10"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Image}">
+            <Setter Property="Source" Value="Resources/info.png"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Button}">
+            <Setter Property="Width" Value="100"></Setter>
+            <Setter Property="DockPanel.Dock" Value="Right"></Setter>
+        </Style>
+        <Style TargetType="{x:Type RowDefinition}" x:Key="row">
+            <Setter Property="Height" Value="100"></Setter>
+        </Style>
+        <Style TargetType="{x:Type Border}" x:Key="borde">
+            <Setter Property="BorderBrush" Value="Black"></Setter>
+            <Setter Property="BorderThickness" Value="3"></Setter>
+            <Setter Property="Margin" Value="5,5,0,10"></Setter>
+            <Setter Property="CornerRadius" Value="2"></Setter>
+
+        </Style>
+    </Window.Resources>
     <DockPanel LastChildFill="False">
         <TextBlock DockPanel.Dock="Top" Text="Formulario" TextAlignment="Center" FontSize="40" FontWeight="Bold"></TextBlock>
         <WrapPanel DockPanel.Dock="Bottom" Height="40">
             <DockPanel LastChildFill="False" Height="30" Width="800">
                 <TextBlock DockPanel.Dock="Left" Text="Pablo Conca" Margin="5"></TextBlock>
-                <Button Width="100" DockPanel.Dock="Right" Content="Cancelar" Margin="0,0,25,0"></Button>
-                <Button Width="100" DockPanel.Dock="Right" Content="Aceptar" Margin="0,0,5,0"></Button>
+                <Button Content="Cancelar" Margin="0,0,25,0"></Button>
+                <Button Content="Aceptar" Margin="0,0,5,0"></Button>
             </DockPanel>
         </WrapPanel>
         <Grid Width="800">
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"></RowDefinition>
-                <RowDefinition Height="100"></RowDefinition>
+                <RowDefinition Style="{StaticResource row}"></RowDefinition>
+                <RowDefinition Style="{StaticResource row}"></RowDefinition>
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -26,7 +57,7 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
                 <Image Grid.Column="1" Grid.RowSpan="3" DockPanel.Dock="Right" Width="250" Margin="10" Stretch="Fill" Source="Resources/foto.jpg"></Image>
-            <Border CornerRadius="2" Margin="5,5,0,10" BorderBrush="Black" BorderThickness="3" Grid.Row="0">
+            <Border Grid.Row="0" Style="{StaticResource borde}">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="7"/>
                 </Border.Effect>
@@ -43,37 +74,37 @@
                     </Grid.RowDefinitions>
 
                     <TextBlock Grid.Row="0" Grid.Column="0" Text="Nombre"></TextBlock>
-                    <TextBox Grid.Row="0" Grid.Column="1" Margin="0,5,5,5"></TextBox>
-                    <Image Grid.Row="0" Grid.Column="2" Source="Resources/info.png"></Image>
+                    <TextBox Grid.Row="0" Grid.Column="1"></TextBox>
+                    <Image Grid.Row="0" Grid.Column="2"></Image>
                     <TextBlock Grid.Row="1" Grid.Column="0" Text="Edad"></TextBlock>
-                    <TextBox Grid.Row="1" Grid.Column="1" Margin="0,5,5,5"></TextBox>
-                    <Image Grid.Row="1" Grid.Column="2" Source="Resources/info.png"></Image>
+                    <TextBox Grid.Row="1" Grid.Column="1"></TextBox>
+                    <Image Grid.Row="1" Grid.Column="2"></Image>
                     <TextBlock Grid.Row="2" Grid.Column="0" Text="Direccion"></TextBlock>
-                    <TextBox Grid.Row="2" Grid.Column="1" Margin="0,5,5,5"></TextBox>
-                    <Image Grid.Row="2" Grid.Column="2" Source="Resources/info.png"></Image>
+                    <TextBox Grid.Row="2" Grid.Column="1"></TextBox>
+                    <Image Grid.Row="2" Grid.Column="2"></Image>
 
                 </Grid>
             </Border>
-            <Border Margin="5,5,0,10" BorderBrush="Black" BorderThickness="3" Grid.Row="1">
+            <Border Grid.Row="1" Style="{StaticResource borde}" Background="LightYellow">
                 <Border.Effect>
                     <DropShadowEffect ShadowDepth="7"/>
                 </Border.Effect>
-                <StackPanel Background="LightYellow" Margin="0,0,0,-10">
+                <StackPanel>
                     <WrapPanel>
                         <GroupBox Header="Aficiones" Width="192">
                             <StackPanel>
-                                <CheckBox Content="Hacer deporte" FontSize="10"></CheckBox>
-                                <CheckBox Content="Viajar" FontSize="10"></CheckBox>
-                                <CheckBox Content="Ver Series " FontSize="10"></CheckBox>
-                                <CheckBox Content="Leer comics" FontSize="10"></CheckBox>
+                                <CheckBox Content="Hacer deporte"></CheckBox>
+                                <CheckBox Content="Viajar"></CheckBox>
+                                <CheckBox Content="Ver Series "></CheckBox>
+                                <CheckBox Content="Leer comics"></CheckBox>
                             </StackPanel>
                         </GroupBox>
                         <GroupBox Header="Estado civil" Width="226">
                             <StackPanel>
-                                <RadioButton GroupName="EstadoCivil" IsChecked="True" Content="Soltero" FontSize="10"></RadioButton>
-                                <RadioButton GroupName="EstadoCivil" Content="Casado" FontSize="10"></RadioButton>
-                                <RadioButton GroupName="EstadoCivil" Content="Divorciado" FontSize="10"></RadioButton>
-                                <RadioButton GroupName="EstadoCivil" Content="Viudo" FontSize="10"></RadioButton>
+                                <RadioButton IsChecked="True" Content="Soltero"></RadioButton>
+                                <RadioButton Content="Casado"></RadioButton>
+                                <RadioButton Content="Divorciado"></RadioButton>
+                                <RadioButton Content="Viudo"></RadioButton>
                             </StackPanel>
                         </GroupBox>
                     </WrapPanel>
